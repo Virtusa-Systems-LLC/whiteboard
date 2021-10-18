@@ -1,9 +1,8 @@
 on:
   name: Deploy to  production Amazon ECR
-  push:
-    branches: [ft/ci-build-image]
-  pull_request:
-    branches: [master]
+  on:
+  release:
+    types: [created]
 jobs:
   deploy:
     name: Deploy
