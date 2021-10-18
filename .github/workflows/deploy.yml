@@ -1,8 +1,8 @@
 on:
-  name: Deploy to  production Amazon ECR
-  on:
-  release:
-    types: [created]
+  name: Deploy to  production Amazon ECS
+  push:
+    branches:
+    - main
 jobs:
   deploy:
     name: Deploy
