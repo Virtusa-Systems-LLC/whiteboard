@@ -58,12 +58,12 @@ You can run this app with and without docker
 
 After you have installed the app, run `npm run start:dev` to start the backend and a frontend development server. The website will be accessible on http://locahost:8080.
 -http://localhost:8080/?whiteboardid=myNewWhiteboard&accesstoken=vss run this url
--If it is not opening-
--commands -
+- If it is not opening-
+- commands -
 - npm i
 - npm update -g npm
 - npx browserslist@latest --update-db
-- npm run start:dev
+- npm run start:dev if not working use npm run start:prod
 - http://localhost:8080/?whiteboardid=myNewWhiteboard&accesstoken=vss
 ## Default keyboard shortcuts
 
