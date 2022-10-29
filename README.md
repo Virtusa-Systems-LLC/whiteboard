@@ -1,6 +1,9 @@
 ## whiteboard Link
 https://ecswb.virtusasystems.com/?whiteboardid=myNewWhiteboard&accesstoken=vss
 
+## API Link
+https://ecswb.talentacad.com/apidoc/index.html
+
 [HERE](https://cloud13.de/testwhiteboard/) (Reset every night)
 
 
