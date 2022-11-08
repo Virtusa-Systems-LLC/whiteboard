@@ -584,24 +584,29 @@ function initWhiteboard() {
             .click(() => {
                 try {
                     const WBDataURL = getWBDataURL();
-                    console.log("URL --- " + WBDataURL);
-                    console.log("URL Params : " + urlParams);
                     let _wid = urlParams.get("whiteboardid");
-                    //  let _wid = urlParams.get("whiteboardid").toString().split("-");
+                    //   let _wid = urlParams.get("whiteboardid").toString().split("-");
                     // _wid = _wid[1] + "-" + _wid[2].toString().replace("I", "");
-
                     $.post(
                         WBDataURL,
                         {
                             wid: _wid,
                         },
                         function (result) {
-                            if (result.wb_json_data) {
+                            if (result.wb_json_data == "") {
+                                whiteboard.clearWhiteboard();
+                            } else {
                                 whiteboard.clearWhiteboard();
                                 var j = JSON.parse(result.wb_json_data);
-                                console.log("j", j);
                                 whiteboard.loadJsonData(j);
                             }
+                            //console.log(result.wb_json_data);
+                            // if (result.wb_json_data) {
+                            //     whiteboard.clearWhiteboard();
+                            //     var j = JSON.parse(result.wb_json_data);
+                            //     //console.log("j", j);
+                            //     whiteboard.loadJsonData(j);
+                            // }
                             alert("Data Resetted!!!");
                         }
                     );
