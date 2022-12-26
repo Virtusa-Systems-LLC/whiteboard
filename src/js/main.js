@@ -584,9 +584,9 @@ function initWhiteboard() {
             .click(() => {
                 try {
                     const WBDataURL = getWBDataURL();
-                    let _wid = urlParams.get("whiteboardid");
-                    //   let _wid = urlParams.get("whiteboardid").toString().split("-");
-                    // _wid = _wid[1] + "-" + _wid[2].toString().replace("I", "");
+                    // let _wid = urlParams.get("whiteboardid");
+                    let _wid = urlParams.get("whiteboardid").toString().split("-");
+                    _wid = _wid[1] + "-" + _wid[2].toString().replace("I", "");
                     $.post(
                         WBDataURL,
                         {
