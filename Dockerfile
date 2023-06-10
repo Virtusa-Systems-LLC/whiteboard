@@ -3,7 +3,7 @@ FROM node:12 as base
 # Create app directory
 RUN mkdir -p /opt/app
 WORKDIR /opt/app
-
+RUN npm install ajv@7.2.3
 # Install app dependencies
 COPY ./package.json package-lock.json config.default.yml ./
 RUN npm ci
