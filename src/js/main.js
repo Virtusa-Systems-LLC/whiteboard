@@ -51,7 +51,7 @@ function main() {
     signaling_socket = io("", { path: subdir + "/ws-api" }); // Connect even if we are in a subdir behind a reverse proxy
 
     signaling_socket.on("connect", function () {
-        console.log("Websocket connected!");
+        // console.log("Websocket connected!");
 
         signaling_socket.on("whiteboardConfig", (serverResponse) => {
             ConfigService.initFromServer(serverResponse);
@@ -171,8 +171,8 @@ function initWhiteboard() {
         // request whiteboard from server
         $.get(subdir + "/api/loadwhiteboard", { wid: whiteboardId, at: accessToken }).done(
             function (data) {
-                console.log(data);
-                whiteboard.loadData(data);
+                // console.log(data);
+                // whiteboard.loadData(data);
                 if (copyfromwid && data.length == 0) {
                     //Copy from witheboard if current is empty and get parameter is given
                     $.get(subdir + "/api/loadwhiteboard", {
@@ -611,7 +611,7 @@ function initWhiteboard() {
                         }
                     );
                 } catch (e) {
-                    console.log(e);
+                    // console.log(e);
                     showBasicAlert("Invalid JSON!");
                 }
             });
@@ -672,7 +672,7 @@ function initWhiteboard() {
                             var loadingTask = pdfjsLib.getDocument({ data: pdfData });
                             loadingTask.promise.then(
                                 function (pdf) {
-                                    console.log("PDF loaded");
+                                    // console.log("PDF loaded");
 
                                     var currentDataUrl = null;
                                     var modalDiv = $(
@@ -716,7 +716,7 @@ function initWhiteboard() {
                                     function showPDFPageAsImage(pageNumber) {
                                         // Fetch the page
                                         pdf.getPage(pageNumber).then(function (page) {
-                                            console.log("Page loaded");
+                                            // console.log("Page loaded");
 
                                             var scale = 1.5;
                                             var viewport = page.getViewport({ scale: scale });
@@ -737,7 +737,7 @@ function initWhiteboard() {
                                                 var dataUrl = canvas.toDataURL("image/jpeg", 1.0);
                                                 currentDataUrl = dataUrl;
                                                 modalDiv.find("img").attr("src", dataUrl);
-                                                console.log("Page rendered");
+                                                // console.log("Page rendered");
                                             });
                                         });
                                     }
@@ -973,7 +973,7 @@ function initWhiteboard() {
                 whiteboard.addImgToCanvasByUrl(
                     `${rootUrl}/uploads/${correspondingReadOnlyWid}/${filename}`
                 ); //Add image to canvas
-                console.log("Image uploaded!");
+                // console.log("Image uploaded!");
             },
             error: function (err) {
                 showBasicAlert("Failed to upload frame: " + JSON.stringify(err));
@@ -997,7 +997,7 @@ function initWhiteboard() {
                 showBasicAlert("Whiteboard was saved to Webdav!", {
                     headercolor: "#5c9e5c",
                 });
-                console.log("Image uploaded to webdav!");
+                // console.log("Image uploaded to webdav!");
                 callback();
             },
             error: function (err) {
@@ -1065,7 +1065,7 @@ function initWhiteboard() {
                         var reader = new window.FileReader();
                         reader.readAsDataURL(blob);
                         reader.onloadend = function () {
-                            console.log("Uploading image!");
+                            // console.log("Uploading image!");
                             let base64data = reader.result;
                             uploadImgAndAddToWhiteboard(base64data);
                         };

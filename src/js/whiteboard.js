@@ -915,7 +915,7 @@ const whiteboard = {
         newLocalBox
     ) {
         var _this = this;
-        console.log(isStickyNote);
+        // console.log(isStickyNote);
         var cssclass = "textBox";
         if (isStickyNote) {
             cssclass += " stickyNote";
@@ -1384,7 +1384,7 @@ const whiteboard = {
                     backgroundColor: "rgba(0, 0, 0, 0)",
                     removeContainer: true,
                 }).then(function (canvas) {
-                    console.log("canvas", canvas);
+                    // console.log("canvas", canvas);
 
                     destCtx.drawImage(canvas, left, top);
                     textBoxCnt--;
