@@ -172,7 +172,7 @@ function initWhiteboard() {
         $.get(subdir + "/api/loadwhiteboard", { wid: whiteboardId, at: accessToken }).done(
             function (data) {
                 // console.log(data);
-                // whiteboard.loadData(data);
+                whiteboard.loadData(data);
                 if (copyfromwid && data.length == 0) {
                     //Copy from witheboard if current is empty and get parameter is given
                     $.get(subdir + "/api/loadwhiteboard", {
