@@ -6,6 +6,7 @@ WORKDIR /opt/app
 # Install app dependencies
 COPY ./package.json package-lock.json config.default.yml ./
 RUN npm ci
+RUN npm install ajv
 
 # Bundle frontend
 COPY src ./src
